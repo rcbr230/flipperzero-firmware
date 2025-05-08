@@ -90,13 +90,13 @@ bool subghz_scene_rpc_on_event(void* context, SceneManagerEvent event) {
             if(state == SubGhzRpcStateLoaded) {
                 switch(
                     subghz_txrx_tx_start(subghz->txrx, subghz_txrx_get_fff_data(subghz->txrx))) {
-                case SubGhzTxRxStartTxStateErrorOnlyRx:
-                    rpc_system_app_set_error_code(
-                        subghz->rpc_ctx, RpcAppSystemErrorCodeRegionLock);
-                    rpc_system_app_set_error_text(
-                        subghz->rpc_ctx,
-                        "Transmission on this frequency is restricted in your region");
-                    break;
+                // case SubGhzTxRxStartTxStateErrorOnlyRx:
+                //     rpc_system_app_set_error_code(
+                //         subghz->rpc_ctx, RpcAppSystemErrorCodeRegionLock);
+                //     rpc_system_app_set_error_text(
+                //         subghz->rpc_ctx,
+                //         "Transmission on this frequency is restricted in your region");
+                //     break;
                 case SubGhzTxRxStartTxStateErrorParserOthers:
                     rpc_system_app_set_error_code(
                         subghz->rpc_ctx, RpcAppSystemErrorCodeInternalParse);
